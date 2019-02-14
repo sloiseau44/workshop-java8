@@ -45,7 +45,8 @@ public class Optional_03_Test {
         Optional<Account> accOpt = Optional.ofNullable(account);
         // TODO A l'aide de la méthode map récupérer le prénom (account -> person -> firstname)
         // TODO Utiliser la méthode orElseThrow pour déclencher l'exception GoodException si non trouvé
-        // accOpt.map...
+        /*accOpt.map(a -> );
+        accOpt.orElseThrow(()-> new GoodException());*/
     }
 
     @Test(expected = GoodException.class)
@@ -54,7 +55,7 @@ public class Optional_03_Test {
         Optional<Account> accOpt = Optional.ofNullable(account);
         // TODO A l'aide de la méthode map récupérer le prénom (account -> person -> firstname)
         // TODO Utiliser la méthode orElseThrow pour déclencher l'exception GoodException si non trouvé
-        // accOpt.map...
+       // accOpt.map()
     }
 
     @Test(expected = GoodException.class)
