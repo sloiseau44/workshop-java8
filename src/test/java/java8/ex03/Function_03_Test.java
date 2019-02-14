@@ -20,11 +20,7 @@ public class Function_03_Test {
     // TODO l'age de l'enfant est 0
     // TODO le mot de passe de l'enfant est null
     BinaryOperator<Person> makeAChild = (f,m)->{
-    	Person c = new Person();
-    	c.setAge(0);
-    	c.setFirstname(f.getFirstname()+" "+m.getFirstname());
-    	c.setLastname(f.getLastname());
-    	c.setPassword(null);
+    	Person c = new Person(f.getFirstname()+" "+m.getFirstname(), f.getLastname(), 0, null);
     	return c;
     };
     //  end::makeAChild[]
