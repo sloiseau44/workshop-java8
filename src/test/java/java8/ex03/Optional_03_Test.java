@@ -45,8 +45,9 @@ public class Optional_03_Test {
         Optional<Account> accOpt = Optional.ofNullable(account);
         // TODO A l'aide de la méthode map récupérer le prénom (account -> person -> firstname)
         // TODO Utiliser la méthode orElseThrow pour déclencher l'exception GoodException si non trouvé
-        /*accOpt.map(a -> );
-        accOpt.orElseThrow(()-> new GoodException());*/
+        // accOpt.map...
+        accOpt.map(acc -> acc.getOwner().getFirstname())
+        .orElseThrow(() -> new GoodException());
     }
 
     @Test(expected = GoodException.class)
@@ -55,7 +56,10 @@ public class Optional_03_Test {
         Optional<Account> accOpt = Optional.ofNullable(account);
         // TODO A l'aide de la méthode map récupérer le prénom (account -> person -> firstname)
         // TODO Utiliser la méthode orElseThrow pour déclencher l'exception GoodException si non trouvé
-       // accOpt.map()
+        // accOpt.map...
+        accOpt.map(acc -> acc.getOwner())
+        .map(p -> p.getFirstname())
+        .orElseThrow(() -> new GoodException());
     }
 
     @Test(expected = GoodException.class)
@@ -65,6 +69,9 @@ public class Optional_03_Test {
         // TODO A l'aide de la méthode map récupérer le prénom (account -> person -> firstname)
         // TODO Utiliser la méthode orElseThrow pour déclencher l'exception GoodException si non trouvé
         // accOpt.map...
+        accOpt.map(acc -> acc.getOwner())
+        .map(p -> p.getFirstname())
+        .orElseThrow(() -> new GoodException());
     }
 
     @Test
@@ -74,5 +81,13 @@ public class Optional_03_Test {
         // TODO A l'aide de la méthode map récupérer le prénom (account -> person -> firstname)
         // TODO Utiliser la méthode ifPresent pour valider que le prénom est "A"
         // accOpt.map...
+        accOpt.map(acc -> acc.getOwner())
+        .map(p -> p.getFirstname())
+        .ifPresent(prenom -> {
+        	if(!prenom.equals("A"))
+        	{
+        		throw new GoodException();
+        	}
+        });
     }
 }
